@@ -1,0 +1,1883 @@
+{
+	"info": {
+		"_postman_id": "77e220b5-0575-4a48-bf38-4bc7ffda8b98",
+		"name": "API Documentation #reference",
+		"description": "This template contains a boilerplate for documentation that you can quickly customize and reuse.\n\n### How to use this template:\n\n- Replace the content given brackets (()) with your API's details.\n    \n- Tips are formatted in `codespan` - feel free to read and remove them.\n    \n\n---\n\n`Start with a brief overview of what your API offers.`\n\nThe ((product name)) provides many API products, tools, and resources that enable you to ((add product value here)).\n\n`You can also list the APIs you offer, link to the relevant pages, or do both in this section.`\n\n## **Getting started guide**\n\n`List the steps or points required to start using your APIs. Make sure to cover everything required to reach success with your API as quickly as possible.`\n\nTo start using the ((add APIs here)), you need to -\n\n`The points given below are from The Postman API's documentation. You can reference it to write your own getting started guide.`\n\n- You must use a valid API Key to send requests to the API endpoints. You can get your API key from Postman's [integrations dashboard](https://go.postman.co/settings/me/api-keys).\n    \n- The API has [rate and usage limits](https://learning.postman.com/docs/developer/postman-api/postman-api-rate-limits/).\n    \n- The API only responds to HTTPS-secured communications. Any requests sent via HTTP return an HTTP 301 redirect to the corresponding HTTPS resources.\n    \n- The API returns request responses in JSON format. When an API request returns an error, it is sent in the JSON response as an error key.\n    \n\n## Authentication\n\n`Add details on the authorization keys/tokens required, steps that cover how to get them, and the relevant error codes.`\n\nThe ((product name)) API uses ((add your API's authorization type)) for authentication.\n\n`The details given below are from the Postman API's documentation. You can reference it to write your own authentication section.`\n\nPostman uses API keys for authentication. You can generate a Postman API key in the [API keys](https://postman.postman.co/settings/me/api-keys) section of your Postman account settings.\n\nYou must include an API key in each request to the Postman API with the X-Api-Key request header.\n\n### Authentication error response\n\nIf an API key is missing, malformed, or invalid, you will receive an HTTP 401 Unauthorized response code.\n\n## Rate and usage limits\n\n`Use this section to cover your APIs' terms of use. Include API limits, constraints, and relevant error codes, so consumers understand the permitted API usage and practices.`\n\n`The example given below is from The Postman API's documentation. Use it as a reference to write your APIs' terms of use.`\n\nAPI access rate limits apply at a per-API key basis in unit time. The limit is 300 requests per minute. Also, depending on your plan, you may have usage limits. If you exceed either limit, your request will return an HTTP 429 Too Many Requests status code.\n\nEach API response returns the following set of headers to help you identify your use status:\n\n| Header | Description |\n| --- | --- |\n| `X-RateLimit-Limit` | The maximum number of requests that the consumer is permitted to make per minute. |\n| `X-RateLimit-Remaining` | The number of requests remaining in the current rate limit window. |\n| `X-RateLimit-Reset` | The time at which the current rate limit window resets in UTC epoch seconds. |\n\n### 503 response\n\nAn HTTP `503` response from our servers indicates there is an unexpected spike in API access traffic. The server is usually operational within the next five minutes. If the outage persists or you receive any other form of an HTTP `5XX` error, [contact support](https://support.postman.com/hc/en-us/requests/new/).\n\n### **Need some help?**\n\n`Add links that customers can refer to whenever they need help.`\n\nIn case you have questions, go through our tutorials ((link to your video or help documentation here)). Or visit our FAQ page ((link to the relevant page)).\n\nOr you can check out our community forum, there’s a good chance our community has an answer for you. Visit our developer forum ((link to developer forum)) to review topics, ask questions, and learn from others.\n\n`You can also document or add links to libraries, code examples, and other resources needed to make a request.`",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36648399",
+		"_collection_link": "https://desarrollo-1496.postman.co/workspace/GestorRestaurante~282afaa4-707d-499a-91a7-f86ae6048d46/collection/36648399-77e220b5-0575-4a48-bf38-4bc7ffda8b98?action=share&source=collection_link&creator=36648399"
+	},
+	"item": [
+		{
+			"name": "AuthJwt",
+			"item": [
+				{
+					"name": "AuthJwt",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = pm.response.json();\r",
+									"pm.collectionVariables.set('AuthJwt', response.data.jwtToken);"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"ApiRestauranteGestor\",\r\n    \"password\": \"CorralesV1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/auth/authenticate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"auth",
+								"authenticate"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Gets information about the authenticated user."
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"ApiRestauranteGestor\",\r\n    \"password\": \"CorralesV1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8090/auth/authenticate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"auth",
+										"authenticate"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 Dec 2025 00:36:43 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"codigo\": \"200\",\n    \"message\": \"Token Creado\",\n    \"data\": {\n        \"jwtToken\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBcGlSZXN0YXVyYW50ZUdlc3RvciIsImlhdCI6MTc2Njg4MjIwMywiZXhwIjoxNzY2ODg5NDAzfQ.0ZSFYtr0QyLjja3Olx9_Va1udNBINs0-kAuiyh6xIdM\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Loguin",
+			"item": [
+				{
+					"name": "Loguin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthJwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreusuario\": \"carlosM\",\r\n    \"contrasena\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/webapp/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"webapp",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "401 - OK NOT PASSWORD",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombreusuario\": \"carlosM\",\r\n    \"contrasena\": \"123416\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/webapp/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"webapp",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Nov 2025 04:47:16 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"codigo\": \"401\",\n    \"message\": \"Contraseña incorrecta\"\n}"
+						},
+						{
+							"name": "400 - OK VALUE NO PRESENT",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombreusuario\": \"tiroedey_6\",\r\n    \"contrasena\": \"244466666\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8090/webapp/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"webapp",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 Dec 2025 00:36:54 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"codigo\": \"400\",\n    \"message\": \"Error en Autenticacion Usuario Exeptionjava.util.NoSuchElementException: No value present\"\n}"
+						},
+						{
+							"name": "200 OK AUTENTICADO",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombreusuario\": \"carlosM\",\r\n    \"contrasena\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8090/webapp/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"webapp",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 Dec 2025 00:42:14 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"codigo\": \"200\",\n    \"message\": \"Autenticacion Exitosa\"\n}"
+						}
+					]
+				},
+				{
+					"name": "registro",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthJwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBcGluZXdwcm9kdWN0cyIsImlhdCI6MTc2MzAzODcyMywiZXhwIjoxNzYzMDQ1OTIzfQ.zprwttf5JirrjtwU0AAG-wCfBQkPgYJJTj8O7IjEHoM",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Carlos\",\r\n    \"apellido\":\"Aristizabal\",\r\n    \"nombreusuario\":\"carlosM\",\r\n    \"correo\":\"Carlosamrio95@gmail.com\",\r\n    \"roll\": \"ADMIN\",\r\n    \"contrasena\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/webapp/registro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"webapp",
+								"registro"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "401 - OK ERROR INSERT",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBcGluZXdwcm9kdWN0cyIsImlhdCI6MTc2MzAzODcyMywiZXhwIjoxNzYzMDQ1OTIzfQ.zprwttf5JirrjtwU0AAG-wCfBQkPgYJJTj8O7IjEHoM",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\":\"Carlos\",\r\n    \"apellido\":\"Aristizabal\",\r\n    \"nombreusuario\":\"carlosM\",\r\n    \"correo\":\"Carlosamrio95@gmail.com\",\r\n    \"roll\": \"ADMIN\",\r\n    \"contrasena\":\"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/webapp/registro",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"webapp",
+										"registro"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Nov 2025 04:48:58 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"codigo\": \"401\",\n    \"message\": \"Error insertando en la BD Exeptionorg.springframework.dao.DataIntegrityViolationException: could not execute statement [Duplicate entry 'Carlosamrio95@gmail.com' for key 'UKt6uelm87h2p7vhww8v9xnaymj'] [insert into users_app_productos (apellido,contrasena,correo,nombre,nombre_usuario,roll) values (?,?,?,?,?,?)]; SQL [insert into users_app_productos (apellido,contrasena,correo,nombre,nombre_usuario,roll) values (?,?,?,?,?,?)]; constraint [UKt6uelm87h2p7vhww8v9xnaymj]\",\n    \"data\": \"Error Realizando el insert a la BD\"\n}"
+						},
+						{
+							"name": "200 - OK- registro",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBcGluZXdwcm9kdWN0cyIsImlhdCI6MTc2MzAzODcyMywiZXhwIjoxNzYzMDQ1OTIzfQ.zprwttf5JirrjtwU0AAG-wCfBQkPgYJJTj8O7IjEHoM",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\":\"Carlos\",\r\n    \"apellido\":\"Aristizabal\",\r\n    \"nombreusuario\":\"carlosM\",\r\n    \"correo\":\"Carlosamrio95@gmail.com\",\r\n    \"roll\": \"ADMIN\",\r\n    \"contrasena\":\"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8090/webapp/registro",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"webapp",
+										"registro"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 Dec 2025 00:40:29 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"codigo\": \"200\",\n    \"message\": \"Registro Creado Exitosamente\",\n    \"data\": {\n        \"id\": 1,\n        \"nombre\": \"Carlos\",\n        \"apellido\": \"Aristizabal\",\n        \"nombreusuario\": \"carlosM\",\n        \"correo\": \"Carlosamrio95@gmail.com\",\n        \"roll\": \"ADMIN\",\n        \"contrasena\": \"$2a$10$YEXqQ6sSmmeOh9NEGg8nn.7QhlZTz.nDRHzzFsP/farVKzsGX.brq\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Proveedor",
+			"item": [
+				{
+					"name": "CrearProveedor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthJwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombreProveedor\": \"Distribuidora casa itagui V2\",\r\n  \"producto\": \"Desechable J1\",\r\n  \"marca\": \"Desechable\",\r\n  \"telefono\": \"3001112222\",\r\n  \"direccion\": \"Itagui Cr 25 # 50-85\",\r\n  \"segmento\": \"Desechable\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/webapp/crearproveedor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"webapp",
+								"crearproveedor"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "error de JWT",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombreProveedor\": \"Distribuidora casa itagui\",\r\n  \"producto\": \"Desechable J1\",\r\n  \"marca\": \"Desechable\",\r\n  \"telefono\": \"3001112222\",\r\n  \"direccion\": \"Itagui Cr 25 # 50-85\",\r\n  \"segmento\": \"Desechable\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8090/webapp/crearproveedor",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"webapp",
+										"crearproveedor"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "17"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Jan 2026 14:39:01 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "ActualizarProveedor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthJwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombreProveedor\": \"Super Carnes itagui\",\r\n  \"producto\": \"Carne de res bobino\",\r\n  \"marca\": \"CarnesPro\",\r\n  \"telefono\": \"3001112222\",\r\n  \"direccion\": \"Medellín\",\r\n  \"segmento\": \"Cárnicos\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/webapp/actualizarproveedor/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"webapp",
+								"actualizarproveedor",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "CrearProveedor Copy",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombreProveedor\": \"Super Carnes itagui\",\r\n  \"producto\": \"Carne de res bobino\",\r\n  \"marca\": \"CarnesPro\",\r\n  \"telefono\": \"3001112222\",\r\n  \"direccion\": \"Medellín\",\r\n  \"segmento\": \"Cárnicos\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8090/webapp/actualizarproveedor/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"webapp",
+										"actualizarproveedor",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Jan 2026 14:42:03 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"codigo\": \"200\",\n    \"message\": \"Creacion Proveedor Exitoso\",\n    \"data\": {\n        \"idPk\": 1,\n        \"nombreProveedor\": \"Super Carnes itagui\",\n        \"producto\": \"Carne de res bobino\",\n        \"marca\": \"CarnesPro\",\n        \"telefono\": \"3001112222\",\n        \"direccion\": \"Medellín\",\n        \"segmento\": \"Cárnicos\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Listar Proveedor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthJwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/webapp/listarproveedor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"webapp",
+								"listarproveedor"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Listar Proveedor",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8090/webapp/listarproveedor",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"webapp",
+										"listarproveedor"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Jan 2026 14:48:51 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"codigo\": \"200\",\n    \"message\": \"Creacion Proveedor Exitoso\",\n    \"data\": [\n        {\n            \"idPk\": 1,\n            \"nombreProveedor\": \"Super Carnes itagui\",\n            \"producto\": \"Carne de res bobino\",\n            \"marca\": \"CarnesPro\",\n            \"telefono\": \"3001112222\",\n            \"direccion\": \"Medellín\",\n            \"segmento\": \"Cárnicos\"\n        },\n        {\n            \"idPk\": 2,\n            \"nombreProveedor\": \"Distribuidora casa itagui\",\n            \"producto\": \"Desechable J1\",\n            \"marca\": \"Desechable\",\n            \"telefono\": \"3001112222\",\n            \"direccion\": \"Itagui Cr 25 # 50-85\",\n            \"segmento\": \"Desechable\"\n        },\n        {\n            \"idPk\": 3,\n            \"nombreProveedor\": \"Distribuidora casa itagui V2\",\n            \"producto\": \"Desechable J1\",\n            \"marca\": \"Desechable\",\n            \"telefono\": \"3001112222\",\n            \"direccion\": \"Itagui Cr 25 # 50-85\",\n            \"segmento\": \"Desechable\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Ingrediente",
+			"item": [
+				{
+					"name": "crearingrediente",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthJwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre_ingrediente\":\"costilla cerdo\",\r\n    \"marca\":\"CarnesPro\",\r\n    \"precio_compra\": 30000,\r\n    \"peso_producto\": 1000,\r\n    \"unidad_medida\":\"gramos\",\r\n    \"valor_producto_gramo\": 30,\r\n    \"proveedor_fk\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/webapp/crearingrediente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"webapp",
+								"crearingrediente"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "crearingrediente",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre_ingrediente\":\"Carne de res bobino\",\r\n    \"marca\":\"CarnesPro\",\r\n    \"precio_compra\": 30000,\r\n    \"peso_producto\": 1000,\r\n    \"unidad_medida\":\"gramos\",\r\n    \"valor_producto_gramo\": 30,\r\n    \"proveedor_fk\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8090/webapp/crearingrediente",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"webapp",
+										"crearingrediente"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Jan 2026 19:56:33 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"codigo\": \"200\",\n    \"message\": \"Creacion Proveedor Exitoso\",\n    \"data\": {\n        \"idPk\": 1,\n        \"nombreIngrediente\": \"Carne de res bobino\",\n        \"marca\": \"CarnesPro\",\n        \"precioCompra\": 30000,\n        \"pesoProducto\": 1000,\n        \"unidadMedida\": \"gramos\",\n        \"valorProductoGramo\": 30,\n        \"proveedor\": {\n            \"idPk\": 1,\n            \"nombreProveedor\": \"Super Carnes itagui\",\n            \"producto\": \"Carne de res bobino\",\n            \"marca\": \"CarnesPro\",\n            \"telefono\": \"3001112222\",\n            \"direccion\": \"Medellín\",\n            \"segmento\": \"Cárnicos\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizaringrediente",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthJwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre_ingrediente\":\"Carne de res bovino\",\r\n    \"marca\":\"CarnesPro\",\r\n    \"precio_compra\": 50000,\r\n    \"peso_producto\": 20000,\r\n    \"unidad_medida\":\"gramos\",\r\n    \"valor_producto_gramo\": 500,\r\n    \"proveedor_fk\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/webapp/actualizaringrediente/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"webapp",
+								"actualizaringrediente",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "crearingrediente",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre_ingrediente\":\"Carne de res bobino\",\r\n    \"marca\":\"CarnesPro\",\r\n    \"precio_compra\": 30000,\r\n    \"peso_producto\": 1000,\r\n    \"unidad_medida\":\"gramos\",\r\n    \"valor_producto_gramo\": 30,\r\n    \"proveedor_fk\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8090/webapp/crearingrediente",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"webapp",
+										"crearingrediente"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Jan 2026 19:56:33 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"codigo\": \"200\",\n    \"message\": \"Creacion Proveedor Exitoso\",\n    \"data\": {\n        \"idPk\": 1,\n        \"nombreIngrediente\": \"Carne de res bobino\",\n        \"marca\": \"CarnesPro\",\n        \"precioCompra\": 30000,\n        \"pesoProducto\": 1000,\n        \"unidadMedida\": \"gramos\",\n        \"valorProductoGramo\": 30,\n        \"proveedor\": {\n            \"idPk\": 1,\n            \"nombreProveedor\": \"Super Carnes itagui\",\n            \"producto\": \"Carne de res bobino\",\n            \"marca\": \"CarnesPro\",\n            \"telefono\": \"3001112222\",\n            \"direccion\": \"Medellín\",\n            \"segmento\": \"Cárnicos\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "listar ingrediente",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthJwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/webapp/listaringrediente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"webapp",
+								"listaringrediente"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "listar ingrediente",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8090/webapp/listaringrediente",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"webapp",
+										"listaringrediente"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Jan 2026 22:16:36 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"codigo\": \"200\",\n    \"message\": \"Listar Ingredientes Exitoso\",\n    \"data\": [\n        {\n            \"idIngrediente\": 1,\n            \"nombreIngrediente\": \"Carne de res bovino\",\n            \"marca\": \"CarnesPro\",\n            \"precioCompra\": 50000,\n            \"pesoProducto\": 20000,\n            \"unidadMedida\": \"gramos\",\n            \"valorProductoGramo\": 500,\n            \"proveedorId\": 1,\n            \"nombreProveedor\": \"Super Carnes itagui\"\n        },\n        {\n            \"idIngrediente\": 2,\n            \"nombreIngrediente\": \"costilla cerdo\",\n            \"marca\": \"CarnesPro\",\n            \"precioCompra\": 30000,\n            \"pesoProducto\": 1000,\n            \"unidadMedida\": \"gramos\",\n            \"valorProductoGramo\": 30,\n            \"proveedorId\": 1,\n            \"nombreProveedor\": \"Super Carnes itagui\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Receta",
+			"item": [
+				{
+					"name": "CrearReceta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthJwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreReceta\":\"Hamburguesa\",\r\n    \"descripcion\":\"Hamburguesa Artesanal\",\r\n    \"usuario_fk\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/webapp/crearreceta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"webapp",
+								"crearreceta"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "crearreceta",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombreReceta\":\"Hamburguesa\",\r\n    \"descripcion\":\"Hamburguesa Artesanal\",\r\n    \"usuario_fk\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8090/webapp/crearreceta",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"webapp",
+										"crearreceta"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Jan 2026 23:58:55 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"codigo\": \"200\",\n    \"message\": \"Creacion Proveedor Exitoso\",\n    \"data\": {\n        \"idPk\": 1,\n        \"nombreReceta\": \"Hamburguesa\",\n        \"descripcion\": \"Hamburguesa Artesanal\",\n        \"usuario\": {\n            \"id\": 1,\n            \"nombre\": \"Carlos\",\n            \"apellido\": \"Aristizabal\",\n            \"nombreusuario\": \"carlosM\",\n            \"correo\": \"Carlosamrio95@gmail.com\",\n            \"roll\": \"ADMIN\",\n            \"contrasena\": \"$2a$10$YEXqQ6sSmmeOh9NEGg8nn.7QhlZTz.nDRHzzFsP/farVKzsGX.brq\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizarreceta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthJwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreReceta\":\"Pizza Napolitana\",\r\n    \"descripcion\":\"pizza napolitana artesanal\",\r\n    \"usuario_fk\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/webapp/actualizarreceta/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"webapp",
+								"actualizarreceta",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizarreceta",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombreReceta\":\"Pizza Napolitana\",\r\n    \"descripcion\":\"pizza napolitana artesanal\",\r\n    \"usuario_fk\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8090/webapp/actualizarreceta/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"webapp",
+										"actualizarreceta",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 00:29:13 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"codigo\": \"200\",\n    \"message\": \"updateingrediente Exitoso\",\n    \"data\": {\n        \"idPk\": 1,\n        \"nombreReceta\": \"Pizza Napolitana\",\n        \"descripcion\": \"pizza napolitana artesanal\",\n        \"usuario\": {\n            \"id\": 1,\n            \"nombre\": \"Carlos\",\n            \"apellido\": \"Aristizabal\",\n            \"nombreusuario\": \"carlosM\",\n            \"correo\": \"Carlosamrio95@gmail.com\",\n            \"roll\": \"ADMIN\",\n            \"contrasena\": \"$2a$10$YEXqQ6sSmmeOh9NEGg8nn.7QhlZTz.nDRHzzFsP/farVKzsGX.brq\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "listarreceta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthJwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/webapp/listarreceta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"webapp",
+								"listarreceta"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "listarreceta",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8090/webapp/listarreceta",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"webapp",
+										"listarreceta"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jan 2026 00:52:17 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"codigo\": \"200\",\n    \"message\": \"Listar Ingredientes Exitoso\",\n    \"data\": [\n        {\n            \"id_pk\": 1,\n            \"nombreReceta\": \"Pizza Napolitana\",\n            \"descripcion\": \"pizza napolitana artesanal\",\n            \"usuario_fk\": 1\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "X-API-Key",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "AuthJwt",
+			"value": "https://farming-simulator.pstmn.io"
+		}
+	]
+}
