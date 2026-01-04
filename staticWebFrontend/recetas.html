@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Recetas</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <div class="d-flex">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <h3 class="logo">RES-GER</h3>
+
+      <div class="user-box">
+        <img src="/img/logoSoftDev.png" alt="user">
+        <span>SoftDevSolution</span>
+      </div>
+
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="/index.html"><i class="bi bi-speedometer2"></i> Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/proveedor.html"><i class="bi bi-truck"></i> Proveedores</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/ingredientes.html"><i class="bi bi-box"></i> Ingredientes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/recetas.html"><i class="bi bi-journal"></i> Recetas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="bi bi-gear"></i> Configuración</a>
+        </li>
+      </ul>
+    </aside>
+
+
+    <!-- MAIN -->
+    <div class="main-content">
+
+      <nav class="topbar">
+        <div>
+          <span>Mega Menu</span>
+          <span>Settings</span>
+          <span>Projects</span>
+        </div>
+
+      </nav>
+
+      <div class="container-fluid mt-4">
+        <h2>Gestión de Recetas</h2>
+        <!-- FORM RECETA -->
+        <div class="card p-4">
+
+          <h5>Nueva Receta</h5>
+
+          <form id="recetaForm" class="row g-3">
+            <div class="col-md-6">
+              <input class="form-control" placeholder="Nombre receta" id="nombreReceta" required>
+            </div>
+
+            <div class="col-md-6">
+              <input class="form-control" placeholder="Descripción" id="descripcion">
+            </div>
+
+            <div class="col-12">
+              <button class="btn btn-primary">
+                <i class="bi bi-save"></i> Crear Receta
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- ASOCIAR INGREDIENTES -->
+        <div class="card p-4 mt-4">
+          <h5>Ingredientes de la Receta</h5>
+
+          <div class="row g-3">
+            <div class="col-md-4">
+              <select class="form-control" id="selectReceta"></select>
+            </div>
+
+            <div class="col-md-4">
+              <select class="form-control" id="selectIngrediente"></select>
+            </div>
+
+            <div class="col-md-2">
+              <input type="number" class="form-control" placeholder="Cantidad (g)" id="cantidad">
+            </div>
+
+            <div class="col-md-2">
+              <button class="btn btn-success w-100" onclick="agregarIngrediente()">
+                <i class="bi bi-plus-circle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- TABLA -->
+        <div class="card p-4 mt-4">
+          <h5>Detalle Receta</h5>
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Receta</th>
+                <th>Ingrediente</th>
+                <th>Cantidad (g)</th>
+              </tr>
+            </thead>
+            <tbody id="tablaRecetaIngrediente"></tbody>
+          </table>
+        </div>
+
+      </div>
+
+       <footer class="dashboard-footer mt-auto">
+        <div class="container-fluid">
+          <div class="row text-center text-md-start">
+
+            <div class="col-md-4 mb-2">
+              <strong>Demo RES-GER</strong><br>
+              Versión académica – Proyecto Demo RES-GER
+            </div>
+
+            <div class="col-md-4 mb-2 text-center">
+              Universidad<br>
+              Corporación Unificada Nacional de Educación Superior CUN 
+            </div>
+
+            <div class="col-md-4 mb-2 text-md-end">
+              © 2026 Todos los derechos reservados
+            </div>
+
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <script src="./main/recetas.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+server:
+  port: 8090
+
+token:
+  time: 3000000
+  secret:
+    key: MySuperSecureJwtSecretKeyForProductsApp2025!
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/gestor_restaurante
+    username: root
+    password: 123456789
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
